@@ -1,4 +1,4 @@
-import { Inject, Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { asyncScheduler, MonoTypeOperatorFunction, SchedulerLike, Subscription } from 'rxjs';
 import { observeOn, subscribeOn } from 'rxjs/operators';
 

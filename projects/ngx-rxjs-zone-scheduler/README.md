@@ -17,7 +17,7 @@ class Xyz implements OnInit {
  
  ngOnInit() {
    this.ngZone.run(() => {/* run inside NgZone */});
-   this.ngZone.runOutsideAngular(() => {/* run outside of NgZone */});
+   this.ngZone.runOutsideAngular(() => {/* run outside NgZone */});
    // ...
  } 
 }
@@ -34,10 +34,7 @@ This is a simple library to wrap this functionality into a rxjs scheduler in ord
 Register the ``RxNgZoneSchedulerModule`` as an import in your AppModule (app.module.ts):
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { RxNgZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
 
 @NgModule({
