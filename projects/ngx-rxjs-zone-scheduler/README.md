@@ -4,20 +4,30 @@ A library for Angular providing rxjs schedulers to run some kind of work inside 
 
 ## Purpose
 
-Sometimes in Angular you need to decide yourself if a task should run inside or outside of ``NgZone``. 
+Sometimes in Angular you need to decide if a task should run inside or outside of ``NgZone``. 
 Usually this is possible by injecting ``NgZone`` via the constructor: 
 
-```
-constructor(private ngZone: NgZone) { ... }
+```typescript
+import { NgZone, OnInit } from '@angular/core';
 
-ngOnInit() {
-  this.ngZone.run(() => // run inside NgZone);
-  this.ngZone.runOutsideAngular(() => // run outside of NgZone);
-  ...
+class Xyz implements OnInit {
+ constructor(private ngZone: NgZone) {
+   // ... 
+ }
+ 
+ ngOnInit() {
+   this.ngZone.run(() => {/* run inside NgZone */});
+   this.ngZone.runOutsideAngular(() => {/* run outside of NgZone */});
+   // ...
+ } 
 }
 ```
 
-This is a simple library to wrap this functionality into a rxjs scheduler in order to use directly with rxjs ``Observable``.
+This is a simple library to wrap this functionality into a rxjs scheduler in order to use it directly with rxjs ``Observable``.
+
+## Installation
+``npm install ngx-rxjs-zone-scheduler --save`` or
+``yarn add ngx-rxjs-zone-scheduler``
 
 ## Usage
 
@@ -85,4 +95,36 @@ export class AppComponent implements OnInit {
   
   // ...
 }
+```
+
+It is also possible to use the schedulers without importing RxNgZoneSchedulerModule:
+
+```typescript
+ import { Component, OnInit, NgZone } from '@angular/core';
+ import { Observable, of } from 'rxjs';
+ import { delay, observeOn } from 'rxjs/operators';
+ 
+ import { enterNgZone, leaveNgZone } from 'ngx-rxjs-zone-scheduler';
+ 
+ @Component({
+   // ...
+ })
+ export class AppComponent implements OnInit {
+   public demotext1$: Observable<string>;
+   public demotext2$: Observable<string>;
+ 
+   constructor(private ngZone: NgZone) { }
+ 
+   ngOnInit() {
+     this.demotext1$ = of('This is the initial text').pipe(
+       observeOn(enterNgZone(this.ngZone))
+     );
+     
+     this.demotext2$ = of('This is the initial text').pipe(
+       observeOn(leaveNgZone(this.ngZone))
+     );
+   }
+   
+   // ...
+ }
 ```
