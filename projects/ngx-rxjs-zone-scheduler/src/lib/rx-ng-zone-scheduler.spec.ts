@@ -1,9 +1,8 @@
-import { async, fakeAsync, TestBed, tick } from '@angular/core/testing';
-
-import { RxNgZoneScheduler } from './rx-ng-zone-scheduler';
 import { NgZone } from '@angular/core';
+import { async, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { RxNgZoneScheduler } from './rx-ng-zone-scheduler';
 
 import Spy = jasmine.Spy;
 
