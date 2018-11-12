@@ -1,0 +1,12 @@
+<h1>Demo app for ngx-rxjs-zone-scheduler</h1>
+<div>
+  <p>{{ demotext$ | async }}</p>
+</div>
+<div>
+  <div><button type="button" (click)="updateProducerOnNgZone()">Update on NgZone via producer</button></div>
+  <div><button type="button" (click)="updateProducerOutOfNgZone()">Update outside of NgZone via producer</button></div>
+  <div><button type="button" (click)="updateObserverOnNgZone()">Update on NgZone via observer</button></div>
+  <div><button type="button" (click)="updateObserverOutOfNgZone()">Update outside of NgZone via observer</button></div>
+  <hr>
+  <div><button type="button" (click)="runChangeDetection()">Run change detection</button></div>
+</div>
