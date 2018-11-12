@@ -1,6 +1,9 @@
 <h1>Demo app for ngx-rxjs-zone-scheduler</h1>
 <div>
-  <p>{{ demotext$ | async }}</p>
+  <p *ngIf="demotext$ | async; let demotext; else refreshing">{{ demotext }}</p>
+  <ng-template #refreshing>
+    <p>Refreshing...</p>
+  </ng-template>
 </div>
 <div>
   <div><button type="button" (click)="updateProducerOnNgZone()">Update on NgZone via producer</button></div>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgxZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
+import { RxNgZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { NgxZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
   ],
   imports: [
     BrowserModule,
-    NgxZoneSchedulerModule
+    RxNgZoneSchedulerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

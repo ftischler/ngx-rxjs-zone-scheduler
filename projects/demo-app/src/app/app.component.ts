@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, delay, tap } from 'rxjs/operators';
-import { NgxZoneScheduler } from 'ngx-rxjs-zone-scheduler';
+import { delay, tap } from 'rxjs/operators';
+import { RxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
 
 @Component({
   selector: 'app-root',
@@ -11,37 +11,38 @@ import { NgxZoneScheduler } from 'ngx-rxjs-zone-scheduler';
 export class AppComponent implements OnInit {
   public demotext$: Observable<string>;
 
-  constructor(private zoneScheduler: NgxZoneScheduler, private changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private zoneScheduler: RxNgZoneScheduler) { }
 
   ngOnInit() {
     this.demotext$ = of('This is the initial text');
   }
 
-  public runChangeDetection(): void {
-    this.changeDetectorRef.detectChanges();
+  public runChangeDetection(): boolean {
+    // Button click event will trigger change detection.
+    return true;
   }
 
   public updateProducerOnNgZone(): void {
     const text = 'This text is updated on NgZone by the producer';
     this.demotext$ = of(text).pipe(
-      tap(() => console.log(text)),
-      delay(100, this.zoneScheduler.enterNgZone())
+      delay(500, this.zoneScheduler.enterNgZone()),
+      tap(() => console.log(text))
     );
   }
 
   public updateProducerOutOfNgZone(): void {
     const text = 'This text is updated out of NgZone by the producer';
     this.demotext$ = of(text).pipe(
-      tap(() => console.log(text)),
-      delay(100, this.zoneScheduler.leaveNgZone())
+      delay(500, this.zoneScheduler.leaveNgZone()),
+      tap(() => console.log(text))
     );
   }
 
   public updateObserverOnNgZone(): void {
     const text = 'This text is updated out of NgZone by the producer and observed on NgZone';
     this.demotext$ = of(text).pipe(
+      delay(500, this.zoneScheduler.leaveNgZone()),
       tap(() => console.log(text)),
-      delay(100, this.zoneScheduler.leaveNgZone()),
       this.zoneScheduler.observeOnNgZone()
     );
   }
@@ -49,9 +50,9 @@ export class AppComponent implements OnInit {
   public updateObserverOutOfNgZone(): void {
     const text = 'This text is updated out of NgZone by the producer and observed on NgZone';
     this.demotext$ = of(text).pipe(
-      tap(() => console.log(text)),
-      delay(100, this.zoneScheduler.enterNgZone()),
-      this.zoneScheduler.observeOutOfNgZone()
+      delay(500, this.zoneScheduler.enterNgZone()),
+      this.zoneScheduler.observeOutOfNgZone(),
+      tap(() => console.log(text))
     );
   }
 }

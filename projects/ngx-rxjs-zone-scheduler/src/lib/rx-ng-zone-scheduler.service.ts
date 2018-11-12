@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Inject, Injectable, NgZone } from '@angular/core';
 import { asyncScheduler, MonoTypeOperatorFunction, SchedulerLike, Subscription } from 'rxjs';
 import { observeOn, subscribeOn } from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ class LeaveZoneScheduler implements SchedulerLike {
   }
 
   now(): number {
-    return 0;
+    return this.scheduler.now();
   }
 }
 
@@ -26,7 +26,7 @@ class EnterZoneScheduler implements SchedulerLike {
   }
 
   now(): number {
-    return 0;
+    return this.scheduler.now();
   }
 }
 
@@ -34,12 +34,12 @@ export function enterNgZone(ngZone: NgZone, scheduler: SchedulerLike = asyncSche
   return new EnterZoneScheduler(ngZone, scheduler);
 }
 
-export function leaveNgZone(ngZone: NgZone, scheduler: SchedulerLike = asyncScheduler): SchedulerLike {
+export function leaveNgZone(ngZone?: NgZone, scheduler: SchedulerLike = asyncScheduler): SchedulerLike {
   return new LeaveZoneScheduler(ngZone, scheduler);
 }
 
 @Injectable()
-export class NgxZoneScheduler {
+export class RxNgZoneScheduler {
   constructor(private ngZone: NgZone) { }
 
   public observeOnNgZone<T>(): MonoTypeOperatorFunction<T> {
