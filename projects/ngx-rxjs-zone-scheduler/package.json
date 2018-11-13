@@ -1,6 +1,17 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "0.0.1",
+  "version": "0.1.1",
+  "author": "Florian Tischler",
+  "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
+  "keywords": [
+    "Angular",
+    "rxjs",
+    "NgZone",
+    "Zone",
+    "Scheduler"
+  ],
+  "homepage": "https://github.com/ftischler/ngx-rxjs-zone-scheduler/tree/master/projects/ngx-rxjs-zone-scheduler",
+  "readme": "https://github.com/ftischler/ngx-rxjs-zone-scheduler/blob/master/projects/ngx-rxjs-zone-scheduler/README.md",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
