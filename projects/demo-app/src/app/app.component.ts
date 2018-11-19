@@ -42,8 +42,8 @@ export class AppComponent implements OnInit {
     const text = 'This text is updated out of NgZone by the producer and observed on NgZone';
     this.demotext$ = of(text).pipe(
       delay(500, this.zoneScheduler.leaveNgZone()),
-      tap(() => console.log(text)),
-      this.zoneScheduler.observeOnNgZone()
+      this.zoneScheduler.observeOnNgZone(),
+      tap(() => console.log(text))
     );
   }
 
