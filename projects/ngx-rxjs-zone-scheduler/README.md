@@ -8,7 +8,7 @@ Sometimes in Angular you need to decide if a task should run inside or outside o
 Usually this is possible by injecting ``NgZone`` via the constructor: 
 
 ```typescript
-import { NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   // ...
