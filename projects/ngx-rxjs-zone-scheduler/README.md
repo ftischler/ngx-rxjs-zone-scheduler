@@ -10,7 +10,10 @@ Usually this is possible by injecting ``NgZone`` via the constructor:
 ```typescript
 import { NgZone, OnInit } from '@angular/core';
 
-class Xyz implements OnInit {
+@Component({
+  // ...
+})
+export class AppComponent implements OnInit {
  constructor(private ngZone: NgZone) {
    // ... 
  }
