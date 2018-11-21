@@ -2,31 +2,29 @@ import { Injectable, NgZone } from '@angular/core';
 import { asyncScheduler, MonoTypeOperatorFunction, SchedulerLike, Subscription } from 'rxjs';
 import { observeOn, subscribeOn } from 'rxjs/operators';
 
-class LeaveZoneScheduler implements SchedulerLike {
-  constructor(private ngZone: NgZone, private scheduler: SchedulerLike) { }
+abstract class ZoneScheduler implements SchedulerLike {
+  constructor(protected ngZone: NgZone, protected scheduler: SchedulerLike) { }
 
-  schedule(...args: any[]): Subscription {
-    return this.ngZone.runOutsideAngular(() => {
-      return this.scheduler.schedule.apply(this.scheduler, args);
-    });
-  }
+  abstract schedule(...args: unknown[]): Subscription;
 
-  now(): number {
+  public now(): number {
     return this.scheduler.now();
   }
 }
 
-class EnterZoneScheduler implements SchedulerLike {
-  constructor(private zone: NgZone, private scheduler: SchedulerLike) { }
-
-  schedule(...args: any[]): Subscription {
-    return this.zone.run(() => {
+class LeaveZoneScheduler extends ZoneScheduler {
+  public schedule(...args: unknown[]): Subscription {
+    return this.ngZone.runOutsideAngular(() => {
       return this.scheduler.schedule.apply(this.scheduler, args);
     });
   }
+}
 
-  now(): number {
-    return this.scheduler.now();
+class EnterZoneScheduler extends ZoneScheduler {
+  public schedule(...args: unknown[]): Subscription {
+    return this.ngZone.run(() => {
+      return this.scheduler.schedule.apply(this.scheduler, args);
+    });
   }
 }
 
