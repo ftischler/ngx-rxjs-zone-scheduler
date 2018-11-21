@@ -32,7 +32,7 @@ export function enterNgZone(ngZone: NgZone, scheduler: SchedulerLike = asyncSche
   return new EnterZoneScheduler(ngZone, scheduler);
 }
 
-export function leaveNgZone(ngZone?: NgZone, scheduler: SchedulerLike = asyncScheduler): SchedulerLike {
+export function leaveNgZone(ngZone: NgZone, scheduler: SchedulerLike = asyncScheduler): SchedulerLike {
   return new LeaveZoneScheduler(ngZone, scheduler);
 }
 
