@@ -40,20 +40,20 @@ export function leaveNgZone(ngZone: NgZone, scheduler: SchedulerLike = asyncSche
 export class RxNgZoneScheduler {
   constructor(private ngZone: NgZone) { }
 
-  public observeOnNgZone<T>(): MonoTypeOperatorFunction<T> {
-    return observeOn<T>(this.enterNgZone());
+  public observeOnNgZone<T>(scheduler?: SchedulerLike): MonoTypeOperatorFunction<T> {
+    return observeOn<T>(this.enterNgZone(scheduler));
   }
 
-  public observeOutOfNgZone<T>(): MonoTypeOperatorFunction<T> {
-    return observeOn<T>(this.leaveNgZone());
+  public observeOutOfNgZone<T>(scheduler?: SchedulerLike): MonoTypeOperatorFunction<T> {
+    return observeOn<T>(this.leaveNgZone(scheduler));
   }
 
-  public subscribeOnNgZone<T>(): MonoTypeOperatorFunction<T> {
-    return subscribeOn<T>(this.enterNgZone());
+  public subscribeOnNgZone<T>(scheduler?: SchedulerLike): MonoTypeOperatorFunction<T> {
+    return subscribeOn<T>(this.enterNgZone(scheduler));
   }
 
-  public subscribeOutOfNgZone<T>(): MonoTypeOperatorFunction<T> {
-    return subscribeOn<T>(this.leaveNgZone());
+  public subscribeOutOfNgZone<T>(scheduler?: SchedulerLike): MonoTypeOperatorFunction<T> {
+    return subscribeOn<T>(this.leaveNgZone(scheduler));
   }
 
   public enterNgZone(scheduler: SchedulerLike = asyncScheduler): SchedulerLike {
