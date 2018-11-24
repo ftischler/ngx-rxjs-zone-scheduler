@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "build:lib": "ng build --project ngx-rxjs-zone-scheduler",
+    "publish:lib": "cd dist/ngx-rxjs-zone-scheduler && npm publish",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
