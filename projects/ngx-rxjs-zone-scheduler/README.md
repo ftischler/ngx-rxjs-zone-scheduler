@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
     );
     
     this.demotext2$ = of('This is the initial text').pipe(
-      this.zoneScheduler.updateObserverOnNgZone() // To observe inside of NgZone - like run()
+      this.zoneScheduler.observeOnNgZone() // To observe inside of NgZone - like run()
     );
     
     // Direct usage of the scheduler:
