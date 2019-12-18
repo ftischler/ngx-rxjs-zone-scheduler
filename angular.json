@@ -138,5 +138,8 @@
       }
     }
   },
-  "defaultProject": "demo-app"
+  "defaultProject": "demo-app",
+  "cli": {
+    "packageManager": "npm"
+  }
 }
