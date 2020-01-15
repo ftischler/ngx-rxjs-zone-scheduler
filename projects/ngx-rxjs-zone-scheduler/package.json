@@ -1,6 +1,6 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "0.2.1",
+  "version": "9.0.0-beta.0",
   "author": "Florian Tischler",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "license": "MIT",
@@ -16,6 +16,7 @@
   "peerDependencies": {
     "@angular/common": ">=7.0.0",
     "@angular/core": ">=7.0.0",
-    "rxjs": "^6.0.0"
+    "rxjs": "^6.0.0",
+    "zone.js": "~0.10.2"
   }
 }
