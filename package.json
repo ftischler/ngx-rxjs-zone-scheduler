@@ -1,14 +1,13 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "12.0.2",
+  "version": "12.0.3",
   "license": "MIT",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "start": "nx serve",
-    "build": "nx build",
-    "publish": "cd dist/libs/ngx-rxjs-zone-scheduler && npm publish",
+    "postinstall": "ngcc --properties es2015 browser module main",
+    "start": "nx serve demo-app",
+    "build": "nx build --prod ngx-rxjs-zone-scheduler",
     "test": "nx test"
   },
   "dependencies": {

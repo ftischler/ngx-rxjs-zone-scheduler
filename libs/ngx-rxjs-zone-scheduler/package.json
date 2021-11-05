@@ -1,6 +1,6 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "12.0.2",
+  "version": "12.0.3",
   "author": "Florian Tischler",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "license": "MIT",
