@@ -123,6 +123,48 @@
       },
       "tags": [],
       "implicitDependencies": ["demo-app"]
+    },
+    "ngx-rxjs-zone-scheduler": {
+      "projectType": "library",
+      "root": "libs/ngx-rxjs-zone-scheduler",
+      "sourceRoot": "libs/ngx-rxjs-zone-scheduler/src",
+      "prefix": "ngx-rxjs-zone-scheduler",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ngx-rxjs-zone-scheduler"],
+          "options": {
+            "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ngx-rxjs-zone-scheduler/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ngx-rxjs-zone-scheduler/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ngx-rxjs-zone-scheduler"],
+          "options": {
+            "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngx-rxjs-zone-scheduler/src/**/*.ts",
+              "libs/ngx-rxjs-zone-scheduler/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }
