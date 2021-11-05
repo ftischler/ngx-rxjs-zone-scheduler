@@ -1,7 +1,5 @@
 # NgxRxjsZoneScheduler
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
-
 ## Library
 
 [Documentation and code here](https://github.com/ftischler/ngx-rxjs-zone-scheduler/blob/main/libs/ngx-rxjs-zone-scheduler)
