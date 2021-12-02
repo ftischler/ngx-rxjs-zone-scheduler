@@ -1,7 +1,8 @@
 import { NgZone } from '@angular/core';
 import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { of, Subject } from 'rxjs';
+import { delay, skip } from 'rxjs/operators';
+
 import { RxNgZoneScheduler } from './rx-ng-zone-scheduler';
 
 class MockNgZone {
@@ -77,6 +78,26 @@ describe('RxNgZoneScheduler', () => {
           expect(mockNgZone.run).toHaveBeenCalledTimes(2);
           expect(mockNgZone.runOutsideAngular).not.toHaveBeenCalled();
         });
+      })
+    );
+
+    it(
+      'should not re-enter the Angular zone if the value has been emitted within the Angular zone',
+      waitForAsync(() => {
+        expect.hasAssertions();
+
+        const test$ = new Subject<string>();
+
+        test$.pipe(service.observeOnNgZone(), skip(1)).subscribe(() => {
+          // Previously, it would've been called 3 times, since we call it manually through `mockNgZone.run`
+          // and the `EnterZoneScheduler` would've called it 2 times.
+          expect(mockNgZone.run).toHaveBeenCalledTimes(2);
+        });
+
+        mockNgZone.run(() => test$.next('within the Angular zone'));
+        mockNgZone.runOutsideAngular(() =>
+          test$.next('outside of the Angular zone')
+        );
       })
     );
 
