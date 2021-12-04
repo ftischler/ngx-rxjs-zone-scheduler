@@ -30,9 +30,9 @@ class LeaveZoneScheduler extends ZoneScheduler {
 
 class EnterZoneScheduler extends ZoneScheduler {
   override schedule<T>(...args: [Work<T>, Delay, T]): Subscription {
-    return this.ngZone.run(() => {
-      return this.scheduler.schedule(...args);
-    });
+    return NgZone.isInAngularZone()
+      ? this.scheduler.schedule(...args)
+      : this.ngZone.run(() => this.scheduler.schedule(...args));
   }
 }
 
