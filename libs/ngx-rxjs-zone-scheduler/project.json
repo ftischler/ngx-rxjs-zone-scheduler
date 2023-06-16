@@ -6,7 +6,7 @@
   "prefix": "ngx-rxjs-zone-scheduler",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/ngx-rxjs-zone-scheduler"],
       "options": {
         "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json"
@@ -22,7 +22,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngx-rxjs-zone-scheduler"],
       "options": {
         "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.ts",
