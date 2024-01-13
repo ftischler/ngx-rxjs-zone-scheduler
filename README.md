@@ -1,5 +1,7 @@
 # NgxRxjsZoneScheduler
 
+[![CI](https://github.com/ftischler/ngx-rxjs-zone-scheduler/actions/workflows/ci.yml/badge.svg)](https://github.com/ftischler/ngx-rxjs-zone-scheduler/actions/workflows/ci.yml)
+
 ## Library
 
 [Documentation and code here](https://github.com/ftischler/ngx-rxjs-zone-scheduler/blob/main/libs/ngx-rxjs-zone-scheduler)
