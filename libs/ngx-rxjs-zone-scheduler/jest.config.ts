@@ -4,7 +4,6 @@ export default {
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {},
-  coverageDirectory: '../../coverage/libs/ngx-rxjs-zone-scheduler',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
