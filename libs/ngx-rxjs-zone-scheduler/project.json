@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/ngx-rxjs-zone-scheduler"],
       "options": {
-        "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json"
       },
       "configurations": {
         "production": {
