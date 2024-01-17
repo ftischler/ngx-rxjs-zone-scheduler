@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/ngx-rxjs-zone-scheduler"],
       "options": {
-        "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json"
+        "project": "libs/ngx-rxjs-zone-scheduler/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {
@@ -25,8 +26,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngx-rxjs-zone-scheduler"],
       "options": {
-        "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.ts"
       }
     },
     "lint": {
