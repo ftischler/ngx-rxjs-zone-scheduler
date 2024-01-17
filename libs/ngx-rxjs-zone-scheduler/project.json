@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngx-rxjs-zone-scheduler"],
       "options": {
-        "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "libs/ngx-rxjs-zone-scheduler/jest.config.ts"
       }
     },
     "lint": {
