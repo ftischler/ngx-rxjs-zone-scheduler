@@ -17,7 +17,8 @@
       "unitTestRunner": "jest"
     },
     "@nx/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "standalone": true
     }
   },
   "defaultProject": "demo-app",
