@@ -34,7 +34,6 @@
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "17.0.9",
     "@angular/language-service": "17.0.9",
-    "@ngneat/spectator": "^16.0.0",
     "@nx/cypress": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
     "@nx/jest": "17.2.8",
