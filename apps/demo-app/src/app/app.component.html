@@ -1,6 +1,6 @@
 <h1>Demo app for ngx-rxjs-zone-scheduler</h1>
 <div>
-  <p *ngIf="demotext$ | async; let demotext; else: refreshing">
+  <p *ngIf="demotext$ && (demotext$ | async); let demotext; else: refreshing">
     {{ demotext }}
   </p>
   <ng-template #refreshing>

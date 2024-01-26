@@ -57,6 +57,5 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
-  },
-  "nxCloudAccessToken": "MThkY2Y1YTQtNjY5OC00NDhiLTk3ODQtYzkxNTYwMzQ3MDFkfHJlYWQtd3JpdGU="
+  }
 }

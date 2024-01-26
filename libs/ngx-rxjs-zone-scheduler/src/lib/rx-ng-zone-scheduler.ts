@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import {
   asyncScheduler,
   MonoTypeOperatorFunction,
@@ -52,7 +52,7 @@ export function leaveNgZone(
 
 @Injectable()
 export class RxNgZoneScheduler {
-  constructor(private ngZone: NgZone) {}
+  private ngZone = inject(NgZone);
 
   public observeOnNgZone<T>(
     scheduler?: SchedulerLike
