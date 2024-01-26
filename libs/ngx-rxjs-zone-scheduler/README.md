@@ -37,21 +37,17 @@ This is a simple library to wrap this functionality into a rxjs scheduler in ord
 
 ## Usage
 
-Register the `RxNgZoneSchedulerModule` as an import in your AppModule (app.module.ts):
+Provide `RxNgZoneScheduler` via `provideRxNgZoneScheduler()` in your `applicationConfig` or `main.ts`:
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { RxNgZoneSchedulerModule } from 'ngx-rxjs-zone-scheduler';
-
-@NgModule({
+import { ApplicationConfig } from '@angular/core';
+import { provideRxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
+// ...
+providers: [
   // ...
-  imports: [
-    // ...,
-    RxNgZoneSchedulerModule,
-  ],
-  // ...
-})
-export class AppModule {}
+  provideRxNgZoneScheduler(),
+];
+// ...
 ```
 
 Now you can inject `RxNgZoneScheduler` in your services or components:

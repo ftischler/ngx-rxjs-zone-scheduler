@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RxNgZoneScheduler } from './rx-ng-zone-scheduler';
 
 @NgModule({
-  providers: [
-    RxNgZoneScheduler
-  ]
+  providers: [RxNgZoneScheduler],
 })
-export class RxNgZoneSchedulerModule { }
+export class RxNgZoneSchedulerModule {}

@@ -1,6 +1,6 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "license": "MIT",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "scripts": {
@@ -34,10 +34,10 @@
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "17.0.9",
     "@angular/language-service": "17.0.9",
-    "@nx/linter": "17.2.8",
     "@nx/cypress": "17.2.8",
     "@nx/eslint-plugin": "17.2.8",
     "@nx/jest": "17.2.8",
+    "@nx/linter": "17.2.8",
     "@nx/node": "17.2.8",
     "@nx/workspace": "17.2.8",
     "@schematics/angular": "17.0.10",

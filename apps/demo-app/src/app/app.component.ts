@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
 import { RxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'ngx-rxjs-zone-scheduler-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [AsyncPipe, NgIf],
 })
 export class AppComponent implements OnInit {
   public demotext$?: Observable<string>;
 
-  constructor(private zoneScheduler: RxNgZoneScheduler) { }
+  constructor(private zoneScheduler: RxNgZoneScheduler) {}
 
   ngOnInit() {
     this.demotext$ = of('This is the initial text');
@@ -39,7 +42,8 @@ export class AppComponent implements OnInit {
   }
 
   public updateObserverOnNgZone(): void {
-    const text = 'This text is updated out of NgZone by the producer and observed on NgZone';
+    const text =
+      'This text is updated out of NgZone by the producer and observed on NgZone';
     this.demotext$ = of(text).pipe(
       delay(500, this.zoneScheduler.leaveNgZone()),
       this.zoneScheduler.observeOnNgZone(),
@@ -48,7 +52,8 @@ export class AppComponent implements OnInit {
   }
 
   public updateObserverOutOfNgZone(): void {
-    const text = 'This text is updated out of NgZone by the producer and observed on NgZone';
+    const text =
+      'This text is updated out of NgZone by the producer and observed on NgZone';
     this.demotext$ = of(text).pipe(
       delay(500, this.zoneScheduler.enterNgZone()),
       this.zoneScheduler.observeOutOfNgZone(),

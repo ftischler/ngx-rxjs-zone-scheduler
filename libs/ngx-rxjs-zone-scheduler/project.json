@@ -29,13 +29,8 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/ngx-rxjs-zone-scheduler/src/**/*.ts",
-          "libs/ngx-rxjs-zone-scheduler/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": []
