@@ -4,6 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/demo-app/src",
   "prefix": "ngx-rxjs-zone-scheduler",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -71,8 +72,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -81,6 +81,5 @@
         "jestConfig": "apps/demo-app/jest.config.ts"
       }
     }
-  },
-  "tags": []
+  }
 }
