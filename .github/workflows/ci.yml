@@ -9,7 +9,7 @@ on:
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.15.0
     with:
       environment-variables: |
         NX_CLOUD_ACCESS_TOKEN=${NX_CLOUD_ACCESS_TOKEN}
