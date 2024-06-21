@@ -9,16 +9,18 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '20'
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Auth
-        run: npm config set _authToken=${{ secrets.NPM_TOKEN }}
-      - name: Build
+      - name: Build the project
+        run: yarn build
+      - name: Create .npmrc file
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - name: Publish to npm
         run: npm publish dist/libs/ngx-rxjs-zone-scheduler
