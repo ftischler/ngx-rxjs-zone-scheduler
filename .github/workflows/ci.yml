@@ -12,7 +12,7 @@ jobs:
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
     with:
       environment-variables: |
-        NX_CLOUD_ACCESS_TOKEN=$NX_CLOUD_ACCESS_TOKEN
+        NX_CLOUD_ACCESS_TOKEN=${NX_CLOUD_ACCESS_TOKEN}
       main-branch-name: main
       number-of-agents: 3
       init-commands: |
