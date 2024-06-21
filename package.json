@@ -1,6 +1,6 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "license": "MIT",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "scripts": {
