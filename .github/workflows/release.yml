@@ -18,11 +18,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn install
+      - name: Auth
+        run: npm config set _authToken=${{ secrets.NPM_TOKEN }}
       - name: Build
-        run: yarn build
-      - name: Pack
-        run: cd dist/libs/ngx-rxjs-zone-scheduler && npm pack
-      - name: Publish
-        run: npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish dist/libs/ngx-rxjs-zone-scheduler
