@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "libs/ngx-rxjs-zone-scheduler/src",
   "prefix": "ngx-rxjs-zone-scheduler",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -29,9 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     }
-  },
-  "tags": []
+  }
 }
