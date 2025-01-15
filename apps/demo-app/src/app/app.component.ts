@@ -5,11 +5,10 @@ import { RxNgZoneScheduler } from 'ngx-rxjs-zone-scheduler';
 import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'ngx-rxjs-zone-scheduler-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  standalone: true,
-  imports: [AsyncPipe, NgIf],
+    selector: 'ngx-rxjs-zone-scheduler-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [AsyncPipe, NgIf]
 })
 export class AppComponent implements OnInit {
   public demotext$?: Observable<string>;
