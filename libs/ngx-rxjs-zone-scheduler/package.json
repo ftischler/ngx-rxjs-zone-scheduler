@@ -1,6 +1,6 @@
 {
   "name": "ngx-rxjs-zone-scheduler",
-  "version": "18.0.1",
+  "version": "19.0.0",
   "author": "Florian Tischler",
   "repository": "https://github.com/ftischler/ngx-rxjs-zone-scheduler",
   "license": "MIT",
@@ -14,11 +14,11 @@
   "homepage": "https://github.com/ftischler/ngx-rxjs-zone-scheduler/blob/main/libs/ngx-rxjs-zone-scheduler",
   "readme": "https://github.com/ftischler/ngx-rxjs-zone-scheduler/blob/main/libs/ngx-rxjs-zone-scheduler/README.md",
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "rxjs": "^7.8.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "rxjs": "^7.8.1"
   },
   "dependencies": {
-    "tslib": "^2.6.2"
+    "tslib": "^2.8.1"
   }
 }

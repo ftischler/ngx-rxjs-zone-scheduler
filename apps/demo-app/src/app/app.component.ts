@@ -8,7 +8,6 @@ import { AsyncPipe, NgIf } from '@angular/common';
   selector: 'ngx-rxjs-zone-scheduler-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
   imports: [AsyncPipe, NgIf],
 })
 export class AppComponent implements OnInit {
